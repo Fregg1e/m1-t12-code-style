@@ -20,6 +20,7 @@ public class DepositCalculator {
     void printResult() {
         int period;
         int action;
+        double yearRate = 0.06;
 
         Scanner scanner = new Scanner(System.in);
 
@@ -32,15 +33,14 @@ public class DepositCalculator {
         System.out.println("Выберите тип вклада, 1 - вклад с обычным процентом, 2 - вклад с капитализацией:");
         action = scanner.nextInt();
 
-        double out = 0;
-
+        double calculationResult = 0;
         if (action == 1) {
-            out = calculateSimplePercent(amount, 0.06, period);
+            calculationResult = calculateSimplePercent(amount, yearRate, period);
         } else if (action == 2) {
-            out = calculateComplexPercent(amount, 0.06, period);
+            calculationResult = calculateComplexPercent(amount, yearRate, period);
         }
 
-        System.out.println("Результат вклада: " + amount + " за " + period + " лет превратятся в " + out);
+        System.out.println("Результат вклада: " + amount + " за " + period + " лет превратятся в " + calculationResult);
     }
 
     public static void main(String[] args) {
